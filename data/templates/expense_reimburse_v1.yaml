@@ -1,0 +1,56 @@
+id: expense_reimburse_v1
+name: 费用报销审批
+category: 报销
+version: '12'
+policy_refs:
+- 三胞集团_费用报销管理制度.pdf
+- 三胞集团_费用报销管理细则.pdf
+- 三胞集团_财务审批权限管理细则.pdf
+- 三胞集团_员工海外出差费用报销管理规定.pdf
+- 三胞集团_公务接待管理办法.pdf
+- 三胞集团_借款管理办法.pdf
+nodes:
+- id: submit
+  name: 员工提交
+  role: 申请人
+  sla_days: 0
+  description: ''
+- id: dept_manager
+  name: 部门经理审批
+  role: 部门经理
+  sla_days: 1
+  description: ''
+- id: finance
+  name: 财务审核
+  role: 财务专员
+  sla_days: 2
+  description: ''
+- id: cfo
+  name: 财务负责人审批
+  role: 财务负责人
+  sla_days: 2
+  description: ''
+- id: pay
+  name: 出纳付款
+  role: 出纳
+  sla_days: 1
+  description: ''
+edges:
+- source: submit
+  target: dept_manager
+  condition: null
+- source: dept_manager
+  target: finance
+  condition: null
+- source: finance
+  target: cfo
+  condition: amount >= 10000
+- source: finance
+  target: pay
+  condition: amount < 10000
+- source: cfo
+  target: pay
+  condition: null
+gateways: []
+approved: true
+source: multi_agent_update
