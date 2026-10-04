@@ -1,0 +1,43 @@
+id: leave_request_v1
+name: 假期与考勤审批
+category: 请假
+version: '2'
+policy_refs:
+- 三胞集团_假期与考勤管理办法.pdf
+nodes:
+- id: submit
+  name: 员工提交请假
+  role: 申请人
+  sla_days: 0
+  description: ''
+- id: dept_manager
+  name: 部门经理审批
+  role: 部门经理
+  sla_days: 1
+  description: ''
+- id: hr
+  name: 人力资源备案
+  role: HR专员
+  sla_days: 1
+  description: ''
+- id: director
+  name: 总监审批
+  role: 部门总监
+  sla_days: 1
+  description: ''
+edges:
+- source: submit
+  target: dept_manager
+  condition: null
+- source: dept_manager
+  target: director
+  condition: days >= 3
+- source: dept_manager
+  target: hr
+  condition: days < 3
+- source: director
+  target: hr
+  condition: null
+gateways: []
+approved: true
+source: multi_agent_update
