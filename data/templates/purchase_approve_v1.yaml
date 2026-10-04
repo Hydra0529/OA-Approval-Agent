@@ -1,0 +1,59 @@
+id: purchase_approve_v1
+name: 采购审批
+category: 采购
+version: '2'
+policy_refs:
+- 三胞集团_低值易耗品管理办法.pdf
+nodes:
+- id: submit
+  name: 采购申请提交
+  role: 申请人
+  sla_days: 0
+  description: ''
+- id: dept_manager
+  name: 部门经理审批
+  role: 部门经理
+  sla_days: 1
+  description: ''
+- id: procurement
+  name: 采购部审核
+  role: 采购专员
+  sla_days: 2
+  description: ''
+- id: finance
+  name: 财务预算审核
+  role: 财务专员
+  sla_days: 1
+  description: ''
+- id: gm
+  name: 总经理审批
+  role: 总经理
+  sla_days: 2
+  description: ''
+- id: po
+  name: 下采购订单
+  role: 采购专员
+  sla_days: 1
+  description: ''
+edges:
+- source: submit
+  target: dept_manager
+  condition: null
+- source: dept_manager
+  target: procurement
+  condition: null
+- source: procurement
+  target: finance
+  condition: null
+- source: finance
+  target: gm
+  condition: amount >= 50000
+- source: finance
+  target: po
+  condition: amount < 50000
+- source: gm
+  target: po
+  condition: null
+gateways: []
+approved: true
+source: multi_agent_update
