@@ -1,0 +1,49 @@
+{
+  "departments": [
+    {
+      "id": "hr",
+      "name": "人力资源部",
+      "parallel_limit": 2
+    },
+    {
+      "id": "it",
+      "name": "信息技术部",
+      "parallel_limit": 2
+    },
+    {
+      "id": "market",
+      "name": "市场部",
+      "parallel_limit": 3
+    },
+    {
+      "id": "gm_office",
+      "name": "总经办",
+      "parallel_limit": 1
+    },
+    {
+      "id": "legal",
+      "name": "法务部",
+      "parallel_limit": 2
+    },
+    {
+      "id": "rd",
+      "name": "研发部",
+      "parallel_limit": 3
+    },
+    {
+      "id": "admin",
+      "name": "行政部",
+      "parallel_limit": 2
+    },
+    {
+      "id": "finance",
+      "name": "财务部",
+      "parallel_limit": 3
+    },
+    {
+      "id": "procurement",
+      "name": "采购部",
+      "parallel_limit": 2
+    }
+  ]
+}
