@@ -1,0 +1,60 @@
+id: contract_approve_v1
+name: 合同审批
+category: 合同
+version: '4'
+policy_refs:
+- 三胞集团_合同管理办法.pdf
+- 三胞集团_法务人员评审合同管理细则.pdf
+nodes:
+- id: submit
+  name: 合同起草提交
+  role: 经办人
+  sla_days: 0
+  description: ''
+- id: legal
+  name: 法务审核
+  role: 法务专员
+  sla_days: 2
+  description: ''
+- id: finance
+  name: 财务审核
+  role: 财务专员
+  sla_days: 1
+  description: ''
+- id: dept_director
+  name: 部门总监审批
+  role: 部门总监
+  sla_days: 1
+  description: ''
+- id: gm
+  name: 总经理审批
+  role: 总经理
+  sla_days: 2
+  description: ''
+- id: seal
+  name: 用印归档
+  role: 行政专员
+  sla_days: 1
+  description: ''
+edges:
+- source: submit
+  target: legal
+  condition: null
+- source: legal
+  target: finance
+  condition: null
+- source: finance
+  target: dept_director
+  condition: null
+- source: dept_director
+  target: gm
+  condition: amount >= 100000
+- source: dept_director
+  target: seal
+  condition: amount < 100000
+- source: gm
+  target: seal
+  condition: null
+gateways: []
+approved: true
+source: multi_agent_update
