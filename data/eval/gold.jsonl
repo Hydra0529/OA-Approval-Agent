@@ -1,0 +1,10 @@
+{"id": "g1", "template_id": "expense_reimburse_v1", "current_node": "finance", "amount": 3200, "expected_next": "pay"}
+{"id": "g2", "template_id": "expense_reimburse_v1", "current_node": "finance", "amount": 15800, "expected_next": "cfo"}
+{"id": "g3", "template_id": "purchase_approve_v1", "current_node": "finance", "amount": 120000, "expected_next": "gm"}
+{"id": "g4", "template_id": "purchase_approve_v1", "current_node": "finance", "amount": 8500, "expected_next": "po"}
+{"id": "g5", "template_id": "contract_approve_v1", "current_node": "dept_director", "amount": 350000, "expected_next": "gm"}
+{"id": "g6", "template_id": "contract_approve_v1", "current_node": "dept_director", "amount": 48000, "expected_next": "seal"}
+{"id": "g7", "template_id": "leave_request_v1", "current_node": "dept_manager", "amount": 0, "fields": {"days": 3}, "expected_next": "director"}
+{"id": "g8", "template_id": "leave_request_v1", "current_node": "dept_manager", "amount": 0, "fields": {"days": 1}, "expected_next": "hr"}
+{"id": "g9", "template_id": "expense_reimburse_v1", "current_node": "dept_manager", "amount": 500, "expected_next": "finance"}
+{"id": "g10", "template_id": "purchase_approve_v1", "current_node": "dept_manager", "amount": 1000, "expected_next": "procurement"}
