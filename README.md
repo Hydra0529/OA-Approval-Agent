@@ -1,3 +1,13 @@
+# OA Approval AI Agent
+
+Learns an approval path from company policy PDFs, then builds a project portfolio, a department calendar, an SLA timeline, a BPMN diagram, and a written report for each application. The next step and its due date come from a deterministic engine. The language model reads the policy, extracts fields, and writes the explanation. The portfolio and the timeline still run when no API key is set.
+
+Internship project at the Institute of Automation, Chinese Academy of Sciences. The interface is React and Vite. The service is FastAPI.
+
+![Project portfolio](docs/screenshots/portfolio.png)
+
+---
+
 # OA 审批 AI Agent
 
 从制度 PDF 学习审批路径，为每一笔申报生成项目清单、部门日历、SLA 时间线、BPMN 流程图和分析报告。下一节点和时间由确定性引擎计算；大模型负责读制度、抽取字段和写说明。没有配置密钥时，清单和推演仍可运行。
